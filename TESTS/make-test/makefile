@@ -1,0 +1,1 @@
+hello : hello .o main.ogcc−o hello hello.o main.o hello .o: hello .cgcc −o hello.o −c hello.c −W−Wall −ansi −pedantic main.o: main.c hello .hmakegcc −o main.o −c main.c −W−Wall −ansi −pedantic
