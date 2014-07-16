@@ -4,16 +4,9 @@
 #include <gsl/gsl_sf_laguerre.h>
 
 #define RMAX 10.
-#define GSL(F,x) (*((F)->function))(x,(F)->params)
 #define L(n,a,x)  gsl_sf_laguerre_n(n,a,x)
 #define FACT(n) gsl_sf_fact(n) //vuole un unsigned int: fattoriale - ritorna double
 #define SFACT(n) gsl_sf_doublefact(n) //di nuovo unsigned: semifattoriale - ritorna double
-
-
-typedef struct {
-	double (*function)(double x, void *params);
-	void *params;
-} gsl_function;
 
 
 typedef struct {
@@ -44,7 +37,6 @@ double qgauss(double (*func)(double), double a, double b) { //Gauss quadrature a
     
     return s *= xr;
 }
-
 /*______________________________________________________END_ANALYSIS____________________________________________________*/
 
 
@@ -85,10 +77,6 @@ int main() {
     }
     
     printf("Normalization: %g\n", qgauss)
-    
-    
-    
-    
     
     return 0;
 }
